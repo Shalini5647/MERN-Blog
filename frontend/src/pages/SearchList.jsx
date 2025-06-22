@@ -12,13 +12,24 @@ const SearchList = () => {
     console.log(blog);
 
 
-    const filteredBlogs = blog.filter(
-        (blog) =>
-            blog.title.toLowerCase().includes(query) ||
-            blog.subtitle.toLowerCase().includes(query) ||
-            blog.category.toLowerCase() === query.toLowerCase()
-    );
+    // const filteredBlogs = blog.filter(
+    //     (blog) =>
+    //         blog?.title?.toLowerCase().includes(query) ||
+    //         blog.subtitle.toLowerCase().includes(query) ||
+    //         blog.category.toLowerCase() === query.toLowerCase()
+    // );
    
+
+    const safeQuery = query?.toLowerCase() || "";
+
+const filteredBlogs = blog.filter((blog) =>
+    blog?.title?.toLowerCase()?.includes(safeQuery) ||
+    blog?.subtitle?.toLowerCase()?.includes(safeQuery) ||
+    blog?.category?.toLowerCase() === safeQuery
+);
+
+
+
     useEffect(()=>{
         window.scrollTo(0,0)
     },[])

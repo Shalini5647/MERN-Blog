@@ -1,101 +1,105 @@
-import BlogCard from '@/components/BlogCard'
-import React, { useEffect } from 'react'
-import LMS from "../assets/LMS.png"
-import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux'
-import { setBlog } from '@/redux/blogSlice'
+import BlogCard from "@/components/BlogCard";
+import React, { useEffect } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setBlog } from "@/redux/blogSlice";
 // import BlogCardList from '@/components/BlogCardList'
 
 export const blogJson = [
-    {
-        "id": 1,
-        "title": "The Ultimate Guide to Digital Marketing in 2025",
-        "author": "Rohit Singh",
-        "date": "2025-03-27",
-        "content": "Digital marketing is constantly evolving. In 2025, businesses must focus on AI-driven strategies, voice search optimization, and hyper-personalization. This guide covers the latest trends and strategies for success.",
-        "tags": ["digital marketing", "SEO", "social media", "PPC"],
-        "category": "Marketing",
-        "image": LMS
-    },
-    {
-        "id": 2,
-        "title": "Building a Full-Stack LMS with MERN Stack",
-        "author": "Rohit Singh",
-        "date": "2025-03-27",
-        "content": "A step-by-step guide to building a Learning Management System (LMS) using React, Tailwind CSS, Node.js, Express.js, and MongoDB. Learn how to create courses, manage users, and process payments.",
-        "tags": ["MERN stack", "LMS", "React", "Node.js"],
-        "category": "Web Development",
-        "image": LMS
-    },
-    {
-        "id": 3,
-        "title": "Top 10 WordPress Plugins for 2025",
-        "author": "Rohit Singh",
-        "date": "2025-03-27",
-        "content": "WordPress remains the most popular CMS. This article covers the top 10 must-have plugins for security, SEO, performance, and customization in 2025.",
-        "tags": ["WordPress", "plugins", "SEO", "website optimization"],
-        "category": "WordPress",
-        "image": LMS
-    },
-    {
-        "id": 4,
-        "title": "How to Use APIs in Web Development",
-        "author": "Rohit Singh",
-        "date": "2025-03-27",
-        "content": "APIs play a crucial role in modern web development. Learn how to integrate third-party APIs, create RESTful APIs with Node.js, and use authentication methods like OAuth.",
-        "tags": ["APIs", "web development", "Node.js", "RESTful API"],
-        "category": "Web Development",
-        "image": LMS
-    },
-    {
-        "id": 5,
-        "title": "Search Engine Optimization: The Complete Beginner’s Guide",
-        "author": "Rohit Singh",
-        "date": "2025-03-27",
-        "content": "SEO is vital for ranking higher on Google. This guide explains keyword research, on-page and off-page SEO, technical SEO, and the latest trends.",
-        "tags": ["SEO", "Google ranking", "keyword research", "backlinks"],
-        "category": "Marketing",
-        "image": LMS
-    }
-]
+  {
+  id: 1,
+  title: "The Ultimate Guide to GST in 2025",
+  author: "Shalini Singh",
+  content: "GST in India continues to evolve with updated rules, return formats, and compliance requirements. In 2025, businesses must stay informed about the latest GST rates, input tax credit changes, and e-invoicing mandates. This guide provides a complete overview for smooth GST compliance.",
+  tags: ["GST", "e-invoice", "compliance", "ITC", "returns"],
+  category: "GST Updates",
+  
+},
 
+  {
+  id: 2,
+  title: "How to File GSTR-1 and GSTR-3B Effectively",
+  author: "Simr Singh",
+  date: "2025-03-27",
+  content:
+    "This step-by-step guide simplifies the process of filing GSTR-1 and GSTR-3B returns. Learn how to avoid common mistakes, match input tax credits, and stay compliant with the latest GST norms.",
+  tags: ["GSTR-1", "GSTR-3B", "GST returns", "compliance"],
+  category: "GST Returns",
+ 
+},
+
+  {
+  id: 3,
+  title: "Top 10 GST Filing Mistakes to Avoid in 2025",
+  author: "Ridhi Singh",
+  date: "2025-03-27",
+  content:
+    "Many businesses face notices due to small but critical GST filing errors. This article highlights the top 10 common mistakes like mismatched invoices, wrong HSN codes, and missed filing deadlines — and how to avoid them.",
+  tags: ["GST", "filing errors", "HSN", "ITC", "compliance"],
+  category: "GST Compliance",
+
+},
+
+  {
+  id: 4,
+  title: "Understanding GST API Integration for Businesses",
+  author: "Rikni Singh",
+  date: "2025-03-27",
+  content:
+    "GST APIs enable seamless filing, return tracking, and invoice validation directly from your software. This guide explains how businesses can use GSTN-approved APIs to automate GST compliance and reduce manual errors.",
+  tags: ["GST API", "automation", "GST returns", "API integration"],
+  category: "GST Automation",
+ 
+  },
+
+  {
+  id: 5,
+  title: "How GST Consultants Can Boost Online Visibility in 2025",
+  author: "Kajol Singh",
+  date: "2025-03-27",
+  content:
+    "In 2025, GST professionals must build a strong digital presence to attract clients. This guide covers how to use content marketing, local SEO, and client testimonials to improve visibility and build trust online.",
+  tags: ["GST consultants", "SEO", "digital strategy", "branding"],
+  category: "Business Growth",
+ 
+},
+
+];
 
 const Blog = () => {
+  const dispatch = useDispatch();
+  const { blog } = useSelector((store) => store.blog);
 
-    const dispatch = useDispatch()
-    const { blog } = useSelector(store => store.blog)
-
-    useEffect(() => {
-        const getAllPublsihedBlogs = async () => {
-            try {
-                const res = await axios.get(`https://mern-blog-ha28.onrender.com/api/v1/blog/get-published-blogs`, { withCredentials: true })
-                if (res.data.success) {
-                    dispatch(setBlog(res.data.blogs))
-                }
-            } catch (error) {
-                console.log(error);
-
-            }
+  useEffect(() => {
+    const getAllPublsihedBlogs = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:3000/api/v1/blog/get-published-blogs`,
+          { withCredentials: true }
+        );
+        if (res.data.success) {
+          dispatch(setBlog(res.data.blogs));
         }
-        getAllPublsihedBlogs()
-    },[])
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllPublsihedBlogs();
+  }, []);
 
-    return (
-        <div className='pt-16'>
-            <div className='max-w-6xl mx-auto text-center flex flex-col space-y-4 items-center'>
-                <h1 className='text-4xl font-bold text-center pt-10 '>Our Blogs</h1>
-                <hr className=' w-24 text-center border-2 border-red-500 rounded-full' />
+  return (
+    <div className="pt-16">
+      <div className="max-w-6xl mx-auto text-center flex flex-col space-y-4 items-center">
+        <h1 className="text-4xl font-bold text-center pt-10 ">Our Blogs</h1>
+        <hr className=" w-24 text-center border-2 border-red-500 rounded-full" />
+      </div>
+      <div className="max-w-6xl mx-auto grid gap-10 grid-cols-1 md:grid-cols-3 py-10 px-4 md:px-0">
+        {blog?.map((blog, index) => {
+          return <BlogCard blog={blog} key={index} />;
+        })}
+      </div>
+    </div>
+  );
+};
 
-            </div>
-            <div className='max-w-6xl mx-auto grid gap-10 grid-cols-1 md:grid-cols-3 py-10 px-4 md:px-0'>
-                {
-                    blog?.map((blog, index) => {
-                        return <BlogCard blog={blog} key={index} />
-                    })
-                }
-            </div>
-        </div>
-    )
-}
-
-export default Blog
+export default Blog;

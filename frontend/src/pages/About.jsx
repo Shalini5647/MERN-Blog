@@ -24,15 +24,14 @@ const About = () => {
           />
           <div>
             <p className=" text-lg mb-4">
-              Welcome to our Blog App! We created this platform for readers,
-              writers, and thinkers to connect through stories, tutorials, and
-              creative insights. Whether you're a passionate blogger or someone
-              who loves reading, this space is built for you.
+             At GST Funda, we’re dedicated to simplifying complex tax laws. Whether you're a student, business owner, or professional, you'll find easy-to-understand content, updates, and guides on GST, Income Tax, and everything in between.
+             Start your journey toward becoming tax-smart — Learn, Apply, and Stay Ahead.
             </p>
             <p className=" text-lg mb-4">
-              Our mission is to empower individuals to express themselves freely.
-              We offer simple tools to write, publish, and engage with others in
-              meaningful ways.
+             Our Mission
+            We aim to empower individuals to share knowledge, ideas, and stories freely. Whether you're writing about GST, Income Tax, web development, or personal experiences — our platform offers simple yet powerful tools to write, publish, and connect with others meaningfully.
+
+
             </p>
             <p className=" text-lg">
               Thank you for being a part of our growing community.
@@ -43,7 +42,7 @@ const About = () => {
         {/* Footer Quote */}
         <div className="mt-16 text-center">
           <blockquote className="text-2xl italic text-gray-500">
-            "Words are powerful. Use them to inspire."
+            "Empower yourself. Know your tax rights, duties, and benefits."
           </blockquote>
         </div>
       </div>

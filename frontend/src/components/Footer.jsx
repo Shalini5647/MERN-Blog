@@ -14,10 +14,10 @@ const Footer = () => {
               <img src={Logo} alt="" className='invert w-12 h-12'/>
               <h1 className=' text-3xl font-bold'>Logo</h1>
             </Link>
-            <p className='mt-2'>Sharing insights, tutorials, and ideas on web development and tech.</p>
-            <p className='mt-2 text-sm'>123 Blog St, Style City, NY 10001</p>
+            <p className='mt-2'>Tech Tutorials & Web Insights from GST Funda.</p>
+            <p className='mt-2 text-sm'>Noida,Sector 62</p>
             <p className='text-sm'>Email: support@blog.com</p>
-            <p className='text-sm'>Phone: (123) 456-7890</p>
+            <p className='text-sm'>Phone: (123) 123456789</p>
         </div>
         {/* customer service link */}
         <div className='mb-6 md:mb-0'>
@@ -48,7 +48,7 @@ const Footer = () => {
                 <input 
                 type="email" 
                 placeholder='Your email address'
-                className='w-full p-2 rounded-l-md  text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500'
+                className='w-full p-2 rounded-l-md  text-black focus:outline-none focus:ring-2 focus:ring-gray-500'
                 />
                 <button type='submit' className='bg-red-600 text-white px-4 rounded-r-md hover:bg-red-700'>Subscribe</button>
             </form>
